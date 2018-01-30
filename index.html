@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ask Carlos!</title>
+		<style>
+			.zoom {
+   			 transition: transform .2s; 
+			}
+
+			.zoom:hover {
+    		transform: scale(1.5);
+    		}
+
+    		.zoomOut {
+   			 transition: transform .2s; 
+			}
+
+			.zoomOut:hover {
+    		transform: scale(1);
+    		}
+
+		</style>
+
+	</head>
+	<body style="background-image: url(bggif.gif);
+				 background-repeat: no-repeat;
+				 overflow: hidden;
+				 background-size: cover">
+
+		<img src="carloslogo.png" alt="Carlos Title!" style="display: block;
+   												   			 margin-left: auto;
+   												   		 	 margin-right: auto;
+   												   		 	 margin-top: 250px;
+   												   			 width: 50%">									   			 
+   												   			 
+   		<img src="carlos.png" alt="Carlos!" class="carlos-img zoom imgSelector"  style="width: 15%;
+   																						display: block;
+   												   			 							margin-left: auto;
+   												   		 	 							margin-right: auto;
+   												   		 							    margin-top: 270px;">									   		 							    
+   		<audio src="bark.wav" class="bark-audio"></audio>
+   		<audio src="bgmusic.mp3" autoplay loop></audio>
+   		<script
+   			 src="https://code.jquery.com/jquery-3.2.1.min.js"
+   			 integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+   			 crossorigin="anonymous"></script> 
+   		<script>
+
+   			var results;
+
+   			$(document).ready(() => {
+
+
+   				$(".carlos-img").on("mouseenter", () =>{
+   					$(".bark-audio")[0].play();
+   					$(".carlos-img").removeClass("zoomOut");
+   					$(".carlos-img").addClass("zoom");
+   					console.log("test");
+   				}).on("mouseleave", () =>{
+   					$(".carlos-img").removeClass("zoom");
+   					$(".carlos-img").addClass("zoomOut");
+   					console.log("test");
+   				})
+   				$(".carlos-img").on("click", () =>{
+   					var randomNum = Math.floor(Math.random() * 5);
+   					var userInput = prompt("Ask Carlos a yes or no question!");
+   					switch (randomNum) {
+   					case 0 :
+   					   results = "WOOF. I DO NOT HAVE THE ANSWER.";
+   					  break;
+   					case 1 :
+   					   results = "WOOF. THAT IS CORRECT.";
+   					  break;
+   					case 2 :
+   					   results = "WOOF. ABSOLUTELY NOT.";
+   					  break;
+   					case 3 :
+   					   results = "WOOF. I AM BUSY EATING SOCKS. ASK LATER."
+   					  break;
+   					case 4 :
+   					   results = "WOOF. THIS IS TRUE."
+   					  break;
+
+   				}
+
+   					var parag = document.createElement("P");                       
+					var txtNode = document.createTextNode(results);
+					var styleCreator = document.createElement("STYLE"); 
+					var styleNode = document.createTextNode("p {text-align: center; color:black; text-decoration: underline;  font-size: 300%; }")  
+					styleCreator.appendChild(styleNode);   
+					parag.appendChild(txtNode);
+					parag.className = "parag-class";                                       
+					document.body.appendChild(parag); 
+					document.body.appendChild(styleCreator);
+					$(".parag-class").fadeOut(4000);
+
+
+
+
+   				})
+   			});
+
+   		</script>
+   	 </body>
+</html>
+    
+
+   			
+
